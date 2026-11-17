@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+    --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #08070e;
+    color: #f4f4f5;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Tier 2: Chai Wala Rich — soft green glow */
+.tier-chai-name {
+  color: #4ade80;
+  text-shadow: 0 0 12px rgba(74, 222, 128, 0.45);
+}
+
+/* Tier 3: Local Don — blue neon glow */
+.tier-don-name {
+  color: #38bdf8;
+  text-shadow:
+    0 0 10px rgba(56, 189, 248, 0.75),
+    0 0 22px rgba(14, 165, 233, 0.45);
+}
+
+/* Tier 4: Seth Ji — gold shimmering text */
+@keyframes gold-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.tier-seth-name {
+  background: linear-gradient(
+    90deg,
+    #f59e0b 0%,
+    #fef08a 25%,
+    #ffd60a 50%,
+    #fef08a 75%,
+    #f59e0b 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 2.4s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 214, 10, 0.35));
+}
+
+/* Tier 5: Ambani ka Cousin — rainbow animated gradient + sparkles */
+@keyframes rainbow-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.tier-ambani-name {
+  background: linear-gradient(
+    90deg,
+    #f43f5e,
+    #f59e0b,
+    #eab308,
+    #22c55e,
+    #38bdf8,
+    #a855f7,
+    #ec4899,
+    #f43f5e
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow-flow 3s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.45));
+}
+
+/* Tier 6: AUKAAT KA BAAP — fire animated text + shake + glowing border */
+@keyframes fire-flicker {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 10px rgba(255, 115, 0, 0.85))
+      drop-shadow(0 0 22px rgba(255, 214, 10, 0.55));
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 16px rgba(255, 68, 0, 0.95))
+      drop-shadow(0 0 30px rgba(255, 214, 10, 0.75));
+  }
+}
+
+@keyframes subtle-baap-shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-1px, 0.5px) rotate(-0.4deg); }
+  40% { transform: translate(1px, -0.5px) rotate(0.4deg); }
+  60% { transform: translate(-0.8px, -0.5px) rotate(-0.2deg); }
+  80% { transform: translate(0.8px, 0.5px) rotate(0.2deg); }
+}
+
+.tier-baap-name {
+  background: linear-gradient(
+    90deg,
+    #ff3b00 0%,
+    #ff9500 25%,
+    #ffe600 50%,
+    #ff5e00 75%,
+    #ff3b00 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fire-flicker 1.5s ease-in-out infinite;
+}
+
+.tier-baap-shake {
+  display: inline-flex;
+  align-items: center;
+  animation: subtle-baap-shake 0.45s ease-in-out infinite;
+}
+
+.tier-baap-border {
+  border-color: rgba(255, 180, 0, 0.65);
+  box-shadow:
+    0 0 24px rgba(245, 158, 11, 0.2),
+    inset 0 0 18px rgba(168, 85, 247, 0.12);
+}
+
+/* Screen shake for ₹5000+ takeover */
+@keyframes screen-shake {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  10% { transform: translate3d(-8px, -5px, 0) rotate(-0.5deg); }
+  20% { transform: translate3d(8px, 5px, 0) rotate(0.5deg); }
+  30% { transform: translate3d(-7px, 6px, 0) rotate(-0.4deg); }
+  40% { transform: translate3d(7px, -6px, 0) rotate(0.4deg); }
+  50% { transform: translate3d(-5px, 3px, 0); }
+  60% { transform: translate3d(5px, -3px, 0); }
+  70% { transform: translate3d(-3px, 2px, 0); }
+  80% { transform: translate3d(3px, -2px, 0); }
+}
+
+.animate-screen-shake {
+  animation: screen-shake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Marquee Ticker */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+  .tier-seth-name,
+  .tier-ambani-name,
+  .tier-baap-name,
+  .tier-baap-shake,
+  .animate-screen-shake,
+  .animate-marquee {
+    animation: none !important;
+  }
+}

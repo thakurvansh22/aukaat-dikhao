@@ -1,0 +1,6 @@
+{
+  "name": "Aukaat Dikhao",
+  "description": "Hinglish meme leaderboard jahan paisa bolta hai aur rank upar jaata hai.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
